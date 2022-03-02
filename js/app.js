@@ -26,6 +26,7 @@ const navList = document.getElementById('navbar__list');
 const sections = (document.querySelectorAll('section'));
 let ulItems = sections.length;
 const toTop = document.getElementById("to-top");
+const menulink = document.querySelectorAll("menu__link")
 
 /**
  * End Global Variables
@@ -79,6 +80,26 @@ window.addEventListener("scroll", getActiveClass);
 
 
 // Scroll to anchor ID using scrollTO event
+function scrollToNavItem(event) {
+    console.log(event.target.innerHTML);
+    const dataNavItem = event.target.innerHTML;
+    const viewSection = document.querySelector(`[data-nav^="${dataNavItem}"]`);
+    viewSection.scrollIntoView({ behavior: "smooth" });
+}
+// Add active class to navbar links
+
+for (let i = 0; i < menulink.length; i++) {
+    menulink[i].addEventListener("click", function() {
+        console.log(1)
+        const activeLink = document.getElementsByClassName("menu__link");
+        for (let i = 0; i < menulink.length; i++) {
+            activeLink[i].classList.remove("active");
+        }
+        console.log(this)
+        this.classList.add("active");
+        scrollToNavItem
+    });
+}
 
 
 // Scroll to the top on click
