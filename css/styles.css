@@ -226,3 +226,7 @@
             padding: 15px;
             border-radius: 7px;
         }
+        .navbar__menu.active {
+            background-color: black;
+            color: white;
+        }
